@@ -1,59 +1,34 @@
 ﻿using Business.Abstract;
-using Business.Constants;
-using Core.Utilities;
+using Core.Entities.Concrete;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Business.Concrete
 {
-    public class UserManager:IUserService
+   public class UserManager : IUserService
     {
-        IUserDal _iuserDal;
+        IUserDal _userDal;
 
-        public UserManager(IUserDal iUserDal)
+        public UserManager(IUserDal userDal)
         {
-            _iuserDal = iUserDal;
+            _userDal = userDal;
         }
 
-        public IResult Add(User user)
+        public List<OperationClaim> GetClaims(User user)
         {
-            //business codes
-
-            if (user.FirstName.Length < 2)
-            {
-                return new ErrorResult(Messages.PasswordDescriptionInvalid);
-            }
-            _iuserDal.Add(user);
-
-            return new SuccessResult(Messages.UserAdded);
+            return _userDal.GetClaims(user);
         }
 
-        public IResult Delete(User user)
+        public void Add(User user)
         {
-            if(user.Password.Length<1)
-            {
-                return new ErrorResult(Messages.UserDeleted);
-            }
-            _iuserDal.Delete(user);
-
-            return new SuccessResult(Messages.UserDeleted);
+            _userDal.Add(user);
         }
 
-        public IDataResult<List<User>> GetAll()
+        public User GetByMail(string email)
         {
-            return new SuccessDataResult<List<User>>(_iuserDal.GetAll(), Messages.UserListed);
-        }
-
-        public IResult Update(User user)
-        {
-            _iuserDal.Add(user);
-            throw new NotImplementedException();
+            return _userDal.Get(u => u.Email == email); //tek bir kullanıcı alacağız. liste de olmamalı.
         }
     }
 }
-
-
-

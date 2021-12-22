@@ -17,17 +17,17 @@ namespace ConsoleUI
             IUserService userService = new UserManager(new EfUserDal());
             ICustomerService customerService = new CustomerManager(new EfCustomerDal());
             
-            foreach (var user in userService.GetAll().Data)
-            {
-                Console.WriteLine(user.FirstName + " " + user.LastName);
-            }
-            userService.Add(new User { Id = 4, Email = "test@gmail.com", FirstName = "Ahmet", LastName = "Külcü", Password = "123456" });
-            customerService.Add(new Customer { UserId =4, CompanyName = "Volkswagen" });
+            //foreach (var user in userService.GetAll().Data)
+            //{
+            //    Console.WriteLine(user.FirstName + " " + user.LastName);
+            //}
+            //userService.Add(new User { Id = 4, Email = "test@gmail.com", FirstName = "Ahmet", LastName = "Külcü", Password = "123456" });
+            //customerService.Add(new Customer { UserId =4, CompanyName = "Volkswagen" });
 
-            foreach (var user in userService.GetAll().Data)
-            {
-                Console.WriteLine(user.FirstName + " " + user.LastName);
-            }
+            //foreach (var user in userService.GetAll().Data)
+            //{
+            //    Console.WriteLine(user.FirstName + " " + user.LastName);
+            //}
         }
 
         private static void CarTest()

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -27,12 +29,26 @@ namespace Business.Constants
         public static string RentalDescriptionInvalid = "Kiralık araç bilgileri geçersiz.";
         public static string BrandDescriptionInvalid = "Araba ismi minimum 2 karakter uzunluğunda olmalı!";
         public static string CarModelYearInvalid = "Araç model yılı geçersiz.";
-        internal static string MaintenanceTime = "Sistem bakımda!";
-        internal static string CarsListed = "Araçlar listelendi.";
-        internal static string ColorListed = "Renkler listelendi.";
-        internal static string BrandListed = "Marka listelendi.";
-        internal static string UserListed = "Kullanıcı listelendi.";
-        internal static string CustomerListed = "Müşteri listelendi.";
-        internal static string RentalListed = "Kiralık araçlar listelendi.";
+        public static string MaintenanceTime = "Sistem bakımda!";
+        public static string CarsListed = "Araçlar listelendi.";
+        public static string ColorListed = "Renkler listelendi.";
+        public static string BrandListed = "Marka listelendi.";
+        public static string UserListed = "Kullanıcı listelendi.";
+        public static string CustomerListed = "Müşteri listelendi.";
+        public static string RentalListed = "Kiralık araçlar listelendi.";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+
+        public static string CarImageAdded = "Araç görseli eklendi.";
+
+        public static string UserrRegistered = "Kayıt oldu.";
+        public static string UserrNotFound = "Kullanıcı bulunamadı.";
+        public static string PasswordError = "Parola hatası.";
+        public static string SuccessfulLogin = "Başarılı giriş.";
+        public static string UserrAlreadyExists = "Kullanıcı mevcut.";
+        public static string AccessTokenCreated = "Token oluşturuldu.";
+        
+        public static string ProductCountOfColorError = "Bir renk grubunda 10'dan fazla araç olamaz.";
+        public static string CarNameAlreadyExists = "Bu isimde zaten başka bir araç var.";
+        public static string ColorLimitExceeded = "Renk limiti aşıldığı için yeni araba eklenemiyor.";
     }
 }
